@@ -8,10 +8,10 @@
   },
   {
     "name": "مادة التربية الإسلامية",
-    "link": "https://chat.whatsapp.com/BzpgM0U623VADINErOB5Ok",
-    "date": "2025-10-05",
+    "link": "https://a7md08.github.io/Files/School/13584/",
+    "date": "2025-10-13",
     "class": "الفصل الأول",
-    "unit": "الوحدة الثانية"
+    "unit": "الوحدة الاولى"
   },
   {
     "name": "مادة الرياضيات",
