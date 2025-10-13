@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Ahmad Algwary - الملفات الدراسية</title>
+<style>
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(180deg, #0f0f12, #16161a);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: border-box; max-width: 100%; }
+
+header {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+header h1 {
+  color: #f5c518;
+  margin: 0;
+  font-size: 2em;
+  word-break: break-word;
+}
+
+.search-container {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.search-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+}
+.search-box input {
+  flex: 1 1 250px;
+  padding: 14px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  min-width: 150px;
+}
+.search-box button {
+  padding: 14px 25px;
+  background: linear-gradient(90deg,#f5c518,#ffdd57);
+  border: none;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.search-box button:hover {
+  background: linear-gradient(90deg,#d4aa0f,#f5c518);
+  transform: translateY(-2px);
+}
+
+.results {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: block;
+  background: rgba(255,255,255,0.05);
+  padding: 18px 22px;
+  border-radius: 12px;
+  transition: background 0.2s, transform 0.1s;
+  position: relative;
+  word-break: break-word;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.card:hover {
+  background: rgba(245,197,24,0.18);
+  transform: translateY(-3px);
+}
+.card .title { color: #f5c518; font-weight: bold; font-size: 1.05em; margin-bottom: 6px; display: inline-block; }
+.card .meta { color: #d1d5db; font-size: 0.9em; }
+.new-badge {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  background: #ff4757;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+#loadMoreBtn {
+  margin: 20px auto 10px;
+  padding: 12px 30px;
+  background: linear-gradient(90deg,#f5c518,#ffdd57);
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: none;
+}
+#loadMoreBtn:hover {
+  background: linear-gradient(90deg,#d4aa0f,#f5c518);
+  transform: translateY(-2px);
+}
+
+footer {
+  width: 100%;
+  padding: 20px 10px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.2);
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.social {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(245,197,24,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.social svg {width: 22px; height: 22px; fill: white; opacity: 0.95;}
+.social:hover {
+  transform: translateY(-5px);
+  border-color: #f5c518;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>الملفات الدراسية</h1>
+</header>
+
+<div class="search-container">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="ابحث عن أي ملف دراسي ..." oninput="search()">
+    <button onclick="search()">بحث</button>
+  </div>
+  <div class="results" id="results"></div>
+  <button id="loadMoreBtn" onclick="loadMore()">عرض المزيد</button>
+</div>
+
+<footer>
+  <div class="socials">
+    <a class="social" href="https://web.facebook.com/ahmad.algwary.98/" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.87 6.48 1.87 12.07c0 4.98 3.57 9.12 8.25 9.86v-6.99H8.41V12.07h3.71V9.58c0-3.66 2.17-5.67 5.5-5.67 1.59 0 3.24.28 3.24.28v3.56h-1.82c-1.8 0-2.36 1.12-2.36 2.27v2.05h4.01l-.64 4.86h-3.37v6.99c4.68-.74 8.25-4.88 8.25-9.86z"/></svg>
+    </a>
+    <a class="social" href="https://www.instagram.com/a7md__08/" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z" stroke="white" stroke-width="1.4" fill="none"/><circle cx="12" cy="12" r="3.5" stroke="white" stroke-width="1.4" fill="none"/><circle cx="17.6" cy="6.4" r="0.6" fill="white"/></svg>
+    </a>
+  </div>
+  <p style="color:#aaa;">© 2025 Ahmad Algwary — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+let subjects = [];
+let currentDisplay = 10; // أول 10 فقط
+let filteredData = [];
+
+const resultsDiv = document.getElementById('results');
+const searchInput = document.getElementById('searchInput');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+function normalizeText(text) {
+  if(!text) return '';
+  return String(text).toLowerCase().replace(/ة/g, 'ه');
+}
+function escapeHtml(str) {
+  if(str === undefined || str === null) return '';
+  return String(str)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'",'&#39;');
+}
+
+function renderResults(items, limit=true) {
+  resultsDiv.innerHTML = '';
+  const now = new Date();
+  const showItems = limit ? items.slice(0, currentDisplay) : items;
+  if(showItems.length === 0){
+    resultsDiv.innerHTML = '<p style="color:#aaa;">لا توجد نتائج</p>';
+    loadMoreBtn.style.display = 'none';
+    return;
+  }
+  showItems.forEach(item => {
+    const a = document.createElement('a');
+    a.className = 'card';
+    a.href = item.link || '#';
+    a.target = '_blank';
+    const addedDate = new Date(item.date);
+    const isNew = !isNaN(addedDate) && ((now - addedDate) / (1000*60*60*24) <= 7);
+    a.innerHTML = `
+      ${isNew ? '<span class="new-badge">جديدة</span>' : ''}
+      <div class="title">${escapeHtml(item.name)}</div>
+      <div class="meta">الفصل: ${escapeHtml(item.class)} | الوحدة: ${escapeHtml(item.unit)} | تاريخ الإضافة: ${escapeHtml(item.date)}</div>
+    `;
+    resultsDiv.appendChild(a);
+  });
+  loadMoreBtn.style.display = (items.length > currentDisplay) ? 'block' : 'none';
+}
+
+function search() {
+  const queryRaw = searchInput.value.trim();
+  localStorage.setItem('lastSearch', queryRaw);
+  const query = normalizeText(queryRaw);
+  if(query === '') {
+    filteredData = subjects;
+  } else {
+    const queryChars = query.split('');
+    filteredData = subjects.filter(item => {
+      const name = normalizeText(item.name || '');
+      const cls  = normalizeText(item.class || '');
+      const unit = normalizeText(item.unit || '');
+      const date = String(item.date || '');
+      return queryChars.every(ch => 
+        name.includes(ch) || cls.includes(ch) || unit.includes(ch) || date.includes(ch)
+      );
+    });
+  }
+  currentDisplay = 10;
+  renderResults(filteredData, true);
+}
+
+function loadMore() {
+  currentDisplay += 5;
+  renderResults(filteredData, true);
+}
+
+function loadData() {
+  fetch('https://a7md08.github.io/Files/School/Search%20information.js', {cache: "no-store"})
+    .then(res => res.json())
+    .then(data => {
+      subjects = Array.isArray(data) ? data.sort((a,b) => new Date(b.date) - new Date(a.date)) : [];
+      const lastSearch = localStorage.getItem('lastSearch') || '';
+      searchInput.value = lastSearch;
+      search();
+    })
+    .catch(err => {
+      console.error("حدث خطأ أثناء تحميل البيانات:", err);
+      resultsDiv.innerHTML = '<p style="color:#aaa;">حدث خطأ أثناء تحميل البيانات</p>';
+    });
+}
+
+loadData();
+setInterval(loadData, 300000);
+</script>
+
+</body>
+</html>
