@@ -16,7 +16,7 @@
   {
     "name": "مادة الرياضيات",
     "link": "https://chat.whatsapp.com/DRDcqi7hmXnKVHXCcsvoAr",
-    "date": "2025-10-03",
+    "date": "2025-10-13",
     "class": "الفصل الثاني",
     "unit": "الوحدة الأولى"
   },
