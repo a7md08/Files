@@ -16,7 +16,7 @@
   {
     "name": "مادة الرياضيات",
     "link": "https://chat.whatsapp.com/DRDcqi7hmXnKVHXCcsvoAr",
-    "date": "2025-10-13",
+    "date": "2025-09-13",
     "class": "الفصل الثاني",
     "unit": "الوحدة الأولى"
   },
@@ -27,6 +27,13 @@
     "class": "الفصل الثاني",
     "unit": "الوحدة الثانية"
    },
+   {
+    "name": "مادة الرياضيات",
+    "link": "https://chat.whatsapp.com/DRDcqi7hmXnKVHXCcsvoAr",
+    "date": "2025-10-13",
+    "class": "الفصل الثاني",
+    "unit": "الوحدة الأولى"
+  },
   {
     "name": "مادة الأحياء",
     "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
@@ -84,3 +91,4 @@
     "unit": "الوحدة الثانية"
   }
 ]
+
