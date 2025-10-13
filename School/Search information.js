@@ -35,6 +35,34 @@
     "unit": "الوحدة الأولى"
   },
   {
+    "name": "مادة الأحياء",
+    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
+    "date": "2025-10-01",
+    "class": "الفصل الأول",
+    "unit": "الوحدة الأولى"
+  },
+  {
+    "name": "مادة الأحياء",
+    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
+    "date": "2025-10-01",
+    "class": "الفصل الأول",
+    "unit": "الوحدة الأولى"
+  },
+  {
+    "name": "مادة الأحياء",
+    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
+    "date": "2025-10-01",
+    "class": "الفصل الأول",
+    "unit": "الوحدة الأولى"
+  },
+  {
+    "name": "مادة الأحياء",
+    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
+    "date": "2025-10-01",
+    "class": "الفصل الأول",
+    "unit": "الوحدة الأولى"
+  },
+  {
     "name": "مادة التربية الإسلامية",
     "link": "https://chat.whatsapp.com/BzpgM0U623VADINErOB5Ok",
     "date": "2025-10-05",
