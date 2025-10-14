@@ -1,93 +1,30 @@
 [
   {
-    "name": "مادة الأحياء",
-    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
-    "date": "2025-10-01",
-    "class": "الفصل الأول",
-    "unit": "الوحدة الأولى"
-  },
-  {
-    "name": "دين - ورقة عمل الدرس الاول",
+    "name": "دين ورقة عمل الدرس الاول",
     "link": "https://a7md08.github.io/Files/School/13584/",
-    "date": "2025-10-13",
-    "class": "الفصل الأول",
-    "unit": "الوحدة الاولى"
-  },
-  {
-    "name": "مادة الرياضيات",
-    "link": "https://chat.whatsapp.com/DRDcqi7hmXnKVHXCcsvoAr",
-    "date": "2025-09-13",
-    "class": "الفصل الثاني",
-    "unit": "الوحدة الأولى"
-  },
-  {
-    "name": "مادة الفيزياء",
-    "link": "https://chat.whatsapp.com/CRSBgze7xxPL8ihAaxM1Gf",
-    "date": "2025-10-06",
-    "class": "الفصل الثاني",
-    "unit": "الوحدة الثانية"
-   },
-   {
-    "name": "مادة الرياضيات",
-    "link": "https://chat.whatsapp.com/DRDcqi7hmXnKVHXCcsvoAr",
-    "date": "2025-10-13",
-    "class": "الفصل الثاني",
-    "unit": "الوحدة الأولى"
-  },
-  {
-    "name": "مادة الأحياء",
-    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
-    "date": "2025-10-01",
+    "date": "2025-10-14",
     "class": "الفصل الأول",
     "unit": "الوحدة الأولى"
   },
   {
-    "name": "مادة الأحياء",
-    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
-    "date": "2025-10-01",
+    "name": "دين حل ورقة عمل الدرس الاول",
+    "link": "https://a7md08.github.io/Files/School/13584/File-answer/",
+    "date": "2025-10-14",
     "class": "الفصل الأول",
     "unit": "الوحدة الأولى"
   },
   {
-    "name": "مادة الأحياء",
-    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
-    "date": "2025-10-01",
+    "name": "دين ورقة عمل الدرس الثاني",
+    "link": "https://a7md08.github.io/Files/School/13585/",
+    "date": "2025-10-14",
     "class": "الفصل الأول",
     "unit": "الوحدة الأولى"
   },
   {
-    "name": "مادة الأحياء",
-    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
-    "date": "2025-10-01",
+    "name": "دين حل ورقة عمل الدرس الثاني",
+    "link": "https://a7md08.github.io/Files/School/13585/File-answer/",
+    "date": "2025-10-14",
     "class": "الفصل الأول",
     "unit": "الوحدة الأولى"
-  },
-  {
-    "name": "مادة الأحياء",
-    "link": "https://chat.whatsapp.com/Hq2W9SvlW9pIGMMVDSR64q",
-    "date": "2025-10-01",
-    "class": "الفصل الأول",
-    "unit": "الوحدة الأولى"
-  },
-  {
-    "name": "مادة التربية الإسلامية",
-    "link": "https://chat.whatsapp.com/BzpgM0U623VADINErOB5Ok",
-    "date": "2025-10-05",
-    "class": "الفصل الأول",
-    "unit": "الوحدة الثانية"
-  },
-  {
-    "name": "مادة الرياضيات",
-    "link": "https://chat.whatsapp.com/DRDcqi7hmXnKVHXCcsvoAr",
-    "date": "2025-10-13",
-    "class": "الفصل الثاني",
-    "unit": "الوحدة الأولى"
-  },
-  {
-    "name": "مادة الفيزياء",
-    "link": "https://chat.whatsapp.com/CRSBgze7xxPL8ihAaxM1Gf",
-    "date": "2025-10-06",
-    "class": "الفصل الثاني",
-    "unit": "الوحدة الثانية"
   }
 ]
