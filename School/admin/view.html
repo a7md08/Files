@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>عرض البيانات</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="frame" style="flex-direction: column;">
+    <div class="brand">📋 قائمة المواد</div>
+    <h1>عرض وتعديل البيانات</h1>
+
+    <input type="text" id="search" placeholder="🔍 ابحث عن مادة..." class="btn-ghost" style="width:100%; margin-bottom:20px;">
+
+    <div id="cards" style="width:100%; display:flex; flex-direction:column; gap:20px;"></div>
+
+    <div class="actions" style="margin-top: 30px;">
+      <button class="btn-primary" onclick="copyJSON()">📋 نسخ JSON</button>
+      <a href="index.html" class="btn-ghost">🔙 العودة</a>
+    </div>
+  </div>
+
+  <script>
+    let items = [];
+
+    function loadData() {
+      items = JSON.parse(localStorage.getItem('subjects') || '[]');
+      displayCards(items);
+    }
+
+    function displayCards(data) {
+      const container = document.getElementById("cards");
+      container.innerHTML = "";
+
+      data.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "avatar-card";
+
+        card.innerHTML = `
+          <h2 style="color:var(--accent); margin-bottom:6px;">${item.name}</h2>
+          <p class="lead">${item.unit} - ${item.class}</p>
+          <p class="lead">📅 ${item.date}</p>
+          <a href="${item.link}" target="_blank" class="btn-primary" style="display:inline-block;margin-top:10px;">فتح الرابط</a>
+          <div class="actions" style="margin-top:14px;">
+            <button class="btn-ghost" onclick="deleteItem(${index})">🗑️ حذف</button>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function deleteItem(index) {
+      if (confirm("هل أنت متأكد من الحذف؟")) {
+        items.splice(index, 1);
+        localStorage.setItem('subjects', JSON.stringify(items));
+        displayCards(items);
+      }
+    }
+
+    function copyJSON() {
+      const json = JSON.stringify(items, null, 2);
+      navigator.clipboard.writeText(json).then(() => {
+        alert("✅ تم نسخ JSON إلى الحافظة");
+      });
+    }
+
+    document.getElementById("search").addEventListener("input", function() {
+      const keyword = this.value.trim();
+      const filtered = items.filter(item =>
+        item.name.includes(keyword) ||
+        item.unit.includes(keyword) ||
+        item.class.includes(keyword)
+      );
+      displayCards(filtered);
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
