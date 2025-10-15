@@ -1,172 +1,171 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Ahmad Algwary - الملفات الدراسية</title>
-
-<!-- Favicon حرف A أصفر -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90' fill='%23f5c518'>A</text></svg>">
-
-<style>
-body {
-  font-family: 'Cairo', sans-serif;
-  background: linear-gradient(180deg, #0f0f12, #16161a);
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-*, *::before, *::after { box-sizing: border-box; max-width: 100%; }
-
-header {
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  background: rgba(0,0,0,0.2);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-header h1 {
-  color: #f5c518;
-  margin: 0;
-  font-size: 2em;
-  word-break: break-word;
-}
-
-.search-container {
-  flex: 1;
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
-}
-
-.search-box {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 25px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
-}
-.search-box input {
-  flex: 1 1 250px;
-  padding: 14px 20px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  min-width: 150px;
-}
-.search-box button {
-  padding: 14px 25px;
-  background: linear-gradient(90deg,#f5c518,#ffdd57);
-  border: none;
-  color: #111;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-.search-box button:hover {
-  background: linear-gradient(90deg,#d4aa0f,#f5c518);
-  transform: translateY(-2px);
-}
-
-.results {
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.card {
-  display: block;
-  background: rgba(255,255,255,0.05);
-  padding: 18px 22px;
-  border-radius: 12px;
-  transition: background 0.2s, transform 0.1s;
-  position: relative;
-  word-break: break-word;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-.card:hover {
-  background: rgba(245,197,24,0.18);
-  transform: translateY(-3px);
-}
-.card .title { color: #f5c518; font-weight: bold; font-size: 1.05em; margin-bottom: 6px; display: inline-block; }
-.card .meta { color: #d1d5db; font-size: 0.9em; }
-.new-badge {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  background: #ff4757;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 3px 8px;
-  border-radius: 8px;
-  pointer-events: none;
-}
-
-#loadMoreBtn {
-  margin: 20px auto 10px;
-  padding: 12px 30px;
-  background: linear-gradient(90deg,#f5c518,#ffdd57);
-  color: #111;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  display: none;
-}
-#loadMoreBtn:hover {
-  background: linear-gradient(90deg,#d4aa0f,#f5c518);
-  transform: translateY(-2px);
-}
-
-footer {
-  width: 100%;
-  padding: 20px 10px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  background: rgba(0,0,0,0.2);
-}
-.socials {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-.social {
-  width: 46px;
-  height: 46px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.04);
-  border: 2px solid rgba(245,197,24,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-.social svg {width: 22px; height: 22px; fill: white; opacity: 0.95;}
-.social:hover {
-  transform: translateY(-5px);
-  border-color: #f5c518;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Ahmad Algwary - الملفات الدراسية</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90' fill='%23f5c518'>A</text></svg>">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, #0f0f12, #16161a);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+    *, *::before, *::after { box-sizing: border-box; max-width: 100%; }
+    header {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      color: #f5c518;
+      margin: 0;
+      font-size: 2em;
+      word-break: break-word;
+    }
+    .search-container {
+      flex: 1;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .search-box {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+    }
+    .search-box input {
+      flex: 1 1 250px;
+      padding: 14px 20px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      min-width: 150px;
+    }
+    .search-box button {
+      padding: 14px 25px;
+      background: linear-gradient(90deg,#f5c518,#ffdd57);
+      border: none;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .search-box button:hover {
+      background: linear-gradient(90deg,#d4aa0f,#f5c518);
+      transform: translateY(-2px);
+    }
+    .results {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card {
+      display: block;
+      background: rgba(255,255,255,0.05);
+      padding: 18px 22px;
+      border-radius: 12px;
+      transition: background 0.2s, transform 0.1s;
+      position: relative;
+      word-break: break-word;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .card:hover {
+      background: rgba(245,197,24,0.18);
+      transform: translateY(-3px);
+    }
+    .card .title {
+      color: #f5c518;
+      font-weight: bold;
+      font-size: 1.05em;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+    .card .meta {
+      color: #d1d5db;
+      font-size: 0.9em;
+    }
+    .new-badge {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      background: #ff4757;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+    #loadMoreBtn {
+      margin: 20px auto 10px;
+      padding: 12px 30px;
+      background: linear-gradient(90deg,#f5c518,#ffdd57);
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      display: none;
+    }
+    #loadMoreBtn:hover {
+      background: linear-gradient(90deg,#d4aa0f,#f5c518);
+      transform: translateY(-2px);
+    }
+    footer {
+      width: 100%;
+      padding: 20px 10px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.2);
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .social {
+      width: 46px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(245,197,24,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .social svg {width: 22px; height: 22px; fill: white; opacity: 0.95;}
+    .social:hover {
+      transform: translateY(-5px);
+      border-color: #f5c518;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+  </style>
 </head>
 <body>
 
@@ -197,7 +196,7 @@ footer {
 
 <script>
 let subjects = [];
-let currentDisplay = 10; // أول 10 فقط
+let currentDisplay = 10;
 let filteredData = [];
 
 const resultsDiv = document.getElementById('results');
@@ -205,11 +204,19 @@ const searchInput = document.getElementById('searchInput');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 
 function normalizeText(text) {
-  if(!text) return '';
-  return String(text).toLowerCase().replace(/ة/g, 'ه');
+  if (!text) return '';
+  return String(text)
+    .toLowerCase()
+    .replace(/[أإآا]/g, 'ا')
+    .replace(/ة/g, 'ه')
+    .replace(/ى/g, 'ي')
+    .replace(/[ًٌٍَُِّْ]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
+
 function escapeHtml(str) {
-  if(str === undefined || str === null) return '';
+  if (str === undefined || str === null) return '';
   return String(str)
     .replaceAll('&','&amp;')
     .replaceAll('<','&lt;')
@@ -248,20 +255,34 @@ function search() {
   const queryRaw = searchInput.value.trim();
   localStorage.setItem('lastSearch', queryRaw);
   const query = normalizeText(queryRaw);
-  if(query === '') {
+
+  if (query === '') {
     filteredData = subjects;
   } else {
-    const queryChars = query.split('');
-    filteredData = subjects.filter(item => {
-      const name = normalizeText(item.name || '');
-      const cls  = normalizeText(item.class || '');
-      const unit = normalizeText(item.unit || '');
-      const date = String(item.date || '');
-      return queryChars.every(ch => 
-        name.includes(ch) || cls.includes(ch) || unit.includes(ch) || date.includes(ch)
-      );
-    });
+    filteredData = subjects
+      .map(item => {
+        const name = normalizeText(item.name || '');
+        const cls = normalizeText(item.class || '');
+        const unit = normalizeText(item.unit || '');
+        const date = normalizeText(item.date || '');
+
+        let score = 0;
+        if (name.includes(query)) score += 3;
+        if (cls.includes(query)) score += 2;
+        if (unit.includes(query)) score += 2;
+        if (date.includes(query)) score += 1;
+
+        const words = query.split(' ');
+        const allMatch = words.every(word =>
+          name.includes(word) || cls.includes(word) || unit.includes(word) || date.includes(word)
+        );
+
+        return allMatch ? { ...item, _score: score } : null;
+      })
+      .filter(item => item !== null)
+      .sort((a, b) => b._score - a._score || new Date(b.date) - new Date(a.date));
   }
+
   currentDisplay = 10;
   renderResults(filteredData, true);
 }
@@ -285,6 +306,10 @@ function loadData() {
       resultsDiv.innerHTML = '<p style="color:#aaa;">حدث خطأ أثناء تحميل البيانات</p>';
     });
 }
+
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') search();
+});
 
 loadData();
 setInterval(loadData, 300000);
