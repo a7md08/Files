@@ -1,18 +1,40 @@
-<!doctype html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Redirecting…</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <title>IP Check</title>
   <script>
-    // تنفيذ فوري جداً؛ استخدم replace حتى لا تخلق سجل في التاريخ
-    window.location.replace("https://a7md08.github.io/Files/School");
-    // كاحتياط في حال تعطّل JS، استخدم meta refresh:
+    const redirectURL = "https://a7md08.github.io/Files/School";
+    const notFoundPage = "404.html";
+
+    window.onload = function () {
+      fetch("hC:\Users\ahmad\Desktop\a7md08\Files\School\admin\ips.json")
+        .then(response => response.json())
+        .then(ipData => {
+          const userIP = ipData.ip;
+
+          fetch("ips.json")
+            .then(response => response.json())
+            .then(jsonData => {
+              const allowedIPs = jsonData.allowed_ips;
+
+              if (allowedIPs.includes(userIP)) {
+                window.location.href = redirectURL;
+              } else {
+                window.location.href = notFoundPage;
+              }
+            })
+            .catch(() => {
+              window.location.href = notFoundPage;
+            });
+        })
+        .catch(() => {
+          window.location.href = notFoundPage;
+        });
+    }
   </script>
-  <meta http-equiv="refresh" content="0;url=https://a7md08.github.io/Files/School">
 </head>
 <body>
-  Redirecting…
+  <p style="text-align:center;">Checking your IP address...</p>
 </body>
 </html>
