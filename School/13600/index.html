@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>مشغل فيديو مع إطار بدون حواف</title>
+
+<!-- Plyr CSS -->
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg1: #111;
+    --bg2: #222;
+    --accent: #f5c518;
+    --muted: #cfcfcf;
+    --card-bg: rgba(245, 197, 24, 0.1);
+  }
+
+  html, body {
+    height: 100%;
+    background: linear-gradient(180deg, var(--bg1) 10%, var(--bg2) 100%);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 640px;
+    height: 360px;
+    background-image: url('/mnt/data/e05d3d93-d8b7-4e7f-a071-709658ec49af.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(2,6,23,0.6);
+  }
+
+  /* الإطار فوق الفيديو */
+  .frame {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+    pointer-events: none;
+    border-radius: 14px;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 14px;
+  }
+
+  /* قسم التواصل الاجتماعي */
+  .socials {
+    margin-top: 25px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .social {
+    width: 46px;
+    height: 46px;
+    background: var(--card-bg);
+    border: 2px solid rgba(245,197,24,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    text-decoration: none;
+  }
+
+  .social svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    opacity: 0.9;
+  }
+
+  .social:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(245, 197, 24, 0.6);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 460px) {
+    .video-wrapper {
+      width: 100%;
+      height: auto;
+    }
+    .social {
+      width: 40px;
+      height: 40px;
+    }
+    .social svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="video-wrapper">
+  <video id="player" playsinline controls>
+    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" />
+    المتصفح لا يدعم تشغيل الفيديو.
+  </video>
+  <div class="frame"></div> <!-- الإطار -->
+</div>
+
+<!-- حسابات التواصل بأسلوب أنيق -->
+<div class="socials" role="list">
+  <!-- فيسبوك -->
+  <a class="social" href="https://web.facebook.com/ahmad.algwary.98/" target="_blank" rel="noopener" aria-label="فيسبوك">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.87 6.48 1.87 12.07c0 4.98 3.57 9.12 8.25 9.86v-6.99H8.41V12.07h3.71V9.58c0-3.66 2.17-5.67 5.5-5.67 1.59 0 3.24.28 3.24.28v3.56h-1.82c-1.8 0-2.36 1.12-2.36 2.27v2.05h4.01l-.64 4.86h-3.37v6.99c4.68-.74 8.25-4.88 8.25-9.86z" fill="white" opacity="0.95"/>
+    </svg>
+  </a>
+
+  <!-- إنستجرام -->
+  <a class="social" href="https://www.instagram.com/a7md__08/" target="_blank" rel="noopener" aria-label="إنستجرام">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z" stroke="white" stroke-opacity="0.95" stroke-width="1.2" fill="none"/>
+      <path d="M12 8.2a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6z" stroke="white" stroke-opacity="0.95" stroke-width="1.2" fill="none"/>
+      <circle cx="17.6" cy="6.4" r="0.6" fill="white" opacity="0.95"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Plyr JS -->
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+<script>
+  const player = new Plyr('#player');
+</script>
+
+</body>
+</html>
